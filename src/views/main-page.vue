@@ -33,13 +33,16 @@
                 </div>
             </div>
         </transition>
+
+        <about_me />
     </div>
 </template>
 
 <script>
 import navbar from '../components/layout/navbar.vue'
+import about_me from '../components/layout/about_me.vue'
 export default {
-    components: { navbar },
+    components: { navbar, about_me },
     data() {
         return {
             isTitleVisible: false,
@@ -50,9 +53,22 @@ export default {
     mounted() {
         this.isTitleVisible = true;
         setTimeout(() => {
-            this.isStar1 = true
-            this.isStar2 = true
-        }, 600)
+            this.isStar1 = true;
+            this.isStar2 = true;
+
+            // Ждем завершения анимации (200ms), после чего выполняем дополнительный код
+            // setTimeout(() => {
+            //     let element = document.getElementById("about_block");
+            //     if (element) {
+            //         element.scrollIntoView({ behavior: "smooth" });
+            //     }
+            // }, 300);
+        }, 600);
+    },
+    methods: {
+        delay(ms) {
+            return new Promise((resolve, reject) => setTimeout(resolve, ms))
+        }
     }
 }
 </script>
@@ -80,18 +96,19 @@ export default {
 }
 
 .fade-enter-active {
-  transition: all .3s ease-out;
+    transition: all .3s ease-out;
 }
 
 .fade-leave-active {
-  transition: all 1.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all 1.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  transform: translateY(-2%);
-  opacity: 0;
+    transform: translateY(-2%);
+    opacity: 0;
 }
+
 // .fade-enter-active,
 // .fade-leave-active {
 //     transition: opacity 2s ease;

@@ -1,6 +1,8 @@
 <template>
+    
     <div class="gradient-container">
-        <navbar />
+
+      
         <transition name="fade">
             <div v-if="isTitleVisible" class="test">
                 <div class="title">
@@ -34,15 +36,11 @@
             </div>
         </transition>
 
-        <about_me />
     </div>
 </template>
 
 <script>
-import navbar from '../components/layout/navbar.vue'
-import about_me from '../components/layout/about_me.vue'
 export default {
-    components: { navbar, about_me },
     data() {
         return {
             isTitleVisible: false,
@@ -160,7 +158,7 @@ blockquote:before {
 
 blockquote p {
     margin: 0 0 16px;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: .05em;
     line-height: 1.4;
 }

@@ -1,55 +1,57 @@
 <template>
-    <div :class="[defaultClass, activeScroll]">
-        <div class="navbar__content">
-            <div class="navbar__content__link active_link">Обо мне</div>
-            <div class="navbar__content__link ">Работы</div>
-            <div class="navbar__content__link ">Хобби</div>
-            <div class="navbar__content__link ">Контакты</div>
-        </div>
+  <div :class="[defaultClass, activeScroll]">
+    <div class="navbar__content">
+      <router-link to="/" class="navbar__content__link">
+        Работы
+      </router-link>
+      <router-link to="/about" class="navbar__content__link">
+        Обо мне
+      </router-link>
+      <router-link to="/hobby" class="navbar__content__link">
+        Хобби
+      </router-link>
+      <div class="navbar__content__link ">Контакты</div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            defaultClass: 'navbar content-overlay',
-            isScrolled: false,
-        }
-    },
-    computed: {
-        activeScroll() {
-            return this.isScrolled ? 'active' : ''; // Условное добавление класса
-        },
-    },
-    mounted() {
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    beforeDestroy() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        handleScroll() {
-            // Вычислите, насколько прокручен пользователь
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  data() {
+    return {
+      defaultClass: 'navbar content-overlay',
 
-            //  после которого смена класса
-            const scrollThreshold = 10;
-
-            // прокрутил ли пользователь достаточно, чтобы изменить класс
-            if (scrollTop > scrollThreshold) {
-                this.isScrolled = true;
-            } else {
-                this.isScrolled = false;
-
-            }
-        },
-
+    };
+  },
+  computed: {
+    activeScroll() {
+      return this.isScrolled ? 'active' : '';
     },
-}
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollThreshold = 10;
 
+      if (scrollTop > scrollThreshold) {
+        this.isScrolled = true;
+      } else {
+        this.isScrolled = false;
+      }
+    },
+    handleClick(linkName) {
+      this.prevActiveLink = this.activeLink;
+      this.activeLink = linkName;
+    },
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 .navbar {
@@ -93,64 +95,31 @@ export default {
     white-space: nowrap;
     border-radius: var(--radius-nav) !important;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .content-overlay {
-    backdrop-filter: blur(15px);
+    // background: var(--color-green800);
+    backdrop-filter: blur(10px);
     /* Размытие заднего фона */
     transition: backdrop-filter 0.3s ease;
 }
 
-.active {
-    background: rgb(43, 76, 64, 0.8);
-    border-radius: var(--radius-nav);
+
+
+.router-link-active {
+  background: rgba(87, 141, 121, 0.4);
+  border-radius: var(--radius-nav);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-beige);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 1.5% 3%;
+  transition: background 1s ease, color 1s ease;
 }
 
-.active_link {
-    background: #b9cac4;
-    border-radius: var(--radius-nav);
-    color: black;
-}
 
-// .navbar {
-//     position: fixed;
-//     top: 0;
-//     left: 50%;
-//     transform: translate(-50%, 0);
-
-//     border-radius: var(--radius-nav);
-//     background: none;
-//     margin-top: 1%;
-//     padding: 1rem;
-//     z-index: var(--zindex-navbar);
-//     transition: background 0.3s ease;
-// }
-
-// .slideon {
-//     background: #203A30 !important;
-//     backdrop-filter: blur(5px) !important;
-// }
-
-// .navbar__content {
-//     display: flex;
-//     justify-content: space-between;
-//     gap: 4%;
-// }
-
-// .navbar__content__link {
-//     width: 25%;
-//     padding: 1.5% 3%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     color: rgb(197, 197, 197);
-//     font-weight: 500;
-//     white-space: nowrap;
-//     border-radius: var(--radius-nav) !important;
-//     cursor: pointer;
-// }
-
-// .active {
-//     background: rgb(43, 76, 64, 0.8);
-//     border-radius: var(--radius-nav);
-// }</style>
+</style>

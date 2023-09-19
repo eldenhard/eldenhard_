@@ -26,9 +26,14 @@
         </transition>
         <transition name="fade">
             <div class="about" id="about_block">
+
                 <div class="about_picture">
+                    <div></div>
                     <img src="../assets//images//me.png" alt="my_photo">
+
+
                 </div>
+
                 <div class="about_description">
 
                     <h2 class="intro">Меня зовут Алексей. Мне {{ new Date().getFullYear() - 1998 }} лет<br>
@@ -47,37 +52,34 @@
                     <div class="mystack">
                         <p class="mystack_description">Мой стэк</p>
                         <div class="mystack_icon">
-                            <div>
-                                <img src="../assets//images/vue.png" alt="" @mouseover="showHoverImage(0)"
-                                    @mouseout="hideHoverImage(0)">
-                                <ul v-if="hoveredImages[0]">
+                            <div class="hover-container" @mouseover="showHoverImage(0)" @mouseout="hideHoverImage(0)">
+                                <img src="../assets//images/vue.png" alt="">
+                                <ul v-if="hoveredImages[0]" class="hover-list">
                                     <li>Vue 2-3</li>
                                     <li>VueX</li>
                                     <li>VueRouter</li>
                                 </ul>
                             </div>
-                            <div>
-                                <img src="../assets//images/html.png" alt="" @mouseover="showHoverImage(1)"
-                                    @mouseout="hideHoverImage(1)">
-                                <ul v-if="hoveredImages[1]">
-                                    <li>HTML</li>
-                                    <li>CSS</li>
+                            <div class="hover-container" @mouseover="showHoverImage(1)" @mouseout="hideHoverImage(1)">
+                                <img src="../assets//images/html.png" alt="">
+                                <ul v-if="hoveredImages[1]" class="hover-list">
+                                    <li>HTML5</li>
                                 </ul>
                             </div>
-                            <div>
-                                <img src="../assets//images/css.png" alt="" @mouseover="showHoverImage(2)"
-                                    @mouseout="hideHoverImage(2)">
-                                <ul v-if="hoveredImages[2]">
-                                    <li>CSS</li>
-                                    <li>Sass</li>
+                            <div class="hover-container" @mouseover="showHoverImage(2)" @mouseout="hideHoverImage(2)">
+                                <img src="../assets//images/css.png" alt="">
+                                <ul v-if="hoveredImages[2]" class="hover-list">
+                                    <li>CSS3</li>
+                                    <li>Sass/SCSS</li>
                                 </ul>
                             </div>
-                            <div>
-                                <img src="../assets//images/js.png" alt="" @mouseover="showHoverImage(3)"
-                                    @mouseout="hideHoverImage(3)">
-                                <ul v-if="hoveredImages[3]">
+                            <div class="hover-container" @mouseover="showHoverImage(3)" @mouseout="hideHoverImage(3)">
+                                <img src="../assets//images/js.png" alt="">
+                                <ul v-if="hoveredImages[3]" class="hover-list">
                                     <li>JavaScript</li>
-                                    <li>ES6</li>
+                                    <li>ES6-10</li>
+                                    <li>AmCharts</li>
+                                    <li>Axios</li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +88,7 @@
             </div>
         </transition>
 
-
+        <!-- <gameVue /> -->
     </div>
 </template>
 <script>
@@ -112,6 +114,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hover-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: transparent;
+    padding: 10px;
+    color: var(--color-beige);
+    font-weight: normal;
+    margin-top: 4%;
+    font-size: 22px;
+    list-style: '✔ ';
+    margin: 0;
+    display: none;
+}
+
+.hover-container:hover .hover-list {
+    transition: 0.5 ease;
+    display: block;
+}
+
 .mystack {
     margin-top: 2%;
 }
@@ -128,6 +155,7 @@ export default {
     width: 50%;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     img {
         filter: grayscale(90%);
@@ -135,7 +163,7 @@ export default {
 
     :hover {
         filter: grayscale(0);
-        transition: 0.5 ease;
+        transition: 1s ease;
         cursor: pointer;
     }
 
@@ -233,6 +261,7 @@ export default {
     // border-radius: 50% 50% 0 0;
     // border: 5px solid var(--color-green300);
     display: flex;
+    flex-direction: column;
     overflow: hidden;
 
     img {
@@ -311,4 +340,5 @@ export default {
         stroke-dasharray: 0 1500;
         opacity: 0;
     }
-}</style>
+}
+</style>

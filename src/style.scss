@@ -11,6 +11,18 @@
 }
 
 @font-face {
+  font-family: 'julia_script';
+  src: url('../src/assets/fonts/julia_script.ttf');
+  /* Измените путь к файлу шрифта здесь */
+
+}
+@font-face {
+  font-family: 'Salwey';
+  src: url('../src/assets/fonts/Salwey.ttf');
+  /* Измените путь к файлу шрифта здесь */
+
+}
+@font-face {
   font-family: 'ambidexter';
   src: url('../src/assets/fonts/ambidexter_regular.otf');
 }
@@ -87,8 +99,27 @@
   --radius-nav: 35px;
   --zindex-navbar: 1;
 
+  --primary: #d63c6b;
+  --primary-dk: #c41c4f;
+  --accent: #5cc8ff;
+  --accent-dk: #00a3f5;
+
 }
 
+
+
+
+@-webkit-keyframes rotate {  
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate {  
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -101,7 +132,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   position: relative;
-  transition: backgroundGradient .2s linear;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -111,31 +141,34 @@ body {
   min-height: 300vh;
   height: auto;
 
-  // background: var(--color-gradient);
-  background: var(--color-green800);
-  background: linear-gradient(180deg  #59884b,#233628,);
+  animation: wave 20s linear infinite forwards; /* Увеличьте продолжительность анимации до 20 секунд для более плавного перехода */
+  background-image: repeating-linear-gradient(
+    45deg, 
+    var(--color-green800)   calc(100% / 4  * 0 / 3), 
+    var(--color-green700) calc(100% / 4  * 1 / 3),
+    var(--color-green500) calc(100% / 4  * 2 / 3),
+    var(--color-green800)  calc(100% / 4  * 3 / 3)
+  );
   background-size: 400% 400%;
-  animation: gradient 2s ease infinite linear;
-
-
-
-  height: auto;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0; /* Перекрывает снизу */
+  left: 0;
+  width: 100%;
+  height: 85vh; /* Закрывает 25% нижней части экрана */
+  background: linear-gradient(to bottom, transparent,  var(--color-green800) ); /* Градиент от прозрачного к черному снизу */
+  z-index: 2; /* Перекрывает body */
+}
+@keyframes wave {
+  from {
+    background-position: 100% 0;
   }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
+  to {
+    background-position: 0 100%;
   }
 }
-
-
 
 

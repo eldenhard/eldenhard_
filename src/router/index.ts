@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'; // 
 import Home from '../views/portfolio.vue'; // Импорт компонента для маршрута
 import about_meVue from '../views/amout_me.vue';
 import hobby from '../views/hobby.vue'
+// import errorPage from '../views/error_page.vue'
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'about_meVue',
         component: about_meVue,
     },
+    // {
+    //     path: '*',
+    //     name: 'errorPage',
+    //     component: errorPage
+    //   }
     // Добавьте другие маршруты сюда
 ];
 

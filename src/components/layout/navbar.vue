@@ -68,6 +68,7 @@ export default {
     display: flex;
     justify-content: center;
     width: 25vw;
+    z-index: 10000000000000000000000;
     /* Ширина навбара */
 }
 

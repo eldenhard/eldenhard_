@@ -72,7 +72,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .quote {
+    // z-index: 30000000 !important;
     width: 41vw;
     position: relative;
     left: 50%;
@@ -84,6 +86,7 @@ export default {
 }
 
 .title {
+    z-index: 30000000 !important;
     opacity: 1;
     position: relative;
     left: 50%;

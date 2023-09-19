@@ -1,69 +1,159 @@
 <template>
     <div>
-              
+
         <transition name="fade">
             <div v-if="isTitleVisible" class="test">
                 <div class="title">
                     <h1 class="title__text">
-                        <span class="title__text__first">
-                          <span class="upper">F</span>rontend-<span class="upper">D</span>eveloper
-                           
-                        </span>
+                        <span class="title__text__first underline">
 
-                       
+                            <span class="underline-text title__text__first">
+                                <span class="upper">F</span>rontend-<span class="upper">D</span>eveloper
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                    <path d="M5,125.4c30.5-3.8,137.9-7.6,177.3-7.6c117.2,0,252.2,4.7,312.7,7.6"></path>
+                                    <!-- <path d="M26.9,143.8c55.1-6.1,126-6.3,162.2-6.1c46.5,0.2,203.9,3.2,268.9,6.4"></path> -->
+                                </svg></span>
+
+
+
+
+                        </span>
                     </h1>
                 </div>
 
             </div>
         </transition>
- 
-    <div class="about" id="about_block">
-        <div class="about_picture">
-            <img src="../assets//images//me.png" alt="my_photo">
-        </div>
-        <div class="about_description">
+        <transition name="fade">
+            <div class="about" id="about_block">
+                <div class="about_picture">
+                    <img src="../assets//images//me.png" alt="my_photo">
+                </div>
+                <div class="about_description">
 
-            <h2 class="intro">Привет! Меня зовут Алексей, и я - молодой и амбициозный Frontend-разработчик. Мне 25 лет,
-                родился маленьком городке - Новочеркасске, Россия. Сейчас жиу в Москве.
-            </h2>
-            Мое программирование началось как хобби и стало моей профессиональной страстью. Мои навыки и опыт позволяют
-            мне создавать удивительные веб-приложения и интерфейсы. Я специализируюсь в разработке, создании макетов и
-            графических элементов интерфейсов. Моя цель - сделать ваши идеи визуально привлекательными и
-            функциональными.
+                    <h2 class="intro">Меня зовут Алексей. Мне {{ new Date().getFullYear() - 1998 }} лет<br>
+                        Родом из г.Новочеркасска, Ростовской области. Сейчас я живу в Москве.
+                    </h2>
+                    <h4 class="descriptio_about_me">
+                        За последние 2.5 с лишним года я работал в различных областях цифрового дизайна, включая
+                        фронтенд-разработку, электронную почту, маркетинг и UI/UX приложений. Я горжусь тем, что носил много
+                        шляп.
+                        <br><br>
+                        В настоящее время я занимаюсь созданием внутренней корпоративной системы железнодорожной компании
+                        Транспортные Технологии
+                        в качестве Frontend-разработчика.
+                    </h4>
 
-            Я готов к новым проектам и всегда ищу возможность улучшить свои навыки и знания в сфере веб-разработки.
-            Готов к работе в различных режимах, включая удаленную работу и командировки.
+                    <div class="mystack">
+                        <p class="mystack_description">Мой стэк</p>
+                        <div class="mystack_icon">
+                            <div>
+                                <img src="../assets//images/vue.png" alt="" @mouseover="showHoverImage(0)"
+                                    @mouseout="hideHoverImage(0)">
+                                <ul v-if="hoveredImages[0]">
+                                    <li>Vue 2-3</li>
+                                    <li>VueX</li>
+                                    <li>VueRouter</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="../assets//images/html.png" alt="" @mouseover="showHoverImage(1)"
+                                    @mouseout="hideHoverImage(1)">
+                                <ul v-if="hoveredImages[1]">
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="../assets//images/css.png" alt="" @mouseover="showHoverImage(2)"
+                                    @mouseout="hideHoverImage(2)">
+                                <ul v-if="hoveredImages[2]">
+                                    <li>CSS</li>
+                                    <li>Sass</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="../assets//images/js.png" alt="" @mouseover="showHoverImage(3)"
+                                    @mouseout="hideHoverImage(3)">
+                                <ul v-if="hoveredImages[3]">
+                                    <li>JavaScript</li>
+                                    <li>ES6</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
 
-            Если вам нужен профессиональный Frontend-разработчик, обращайтесь! Я всегда открыт для новых и интересных
-            задач.
-        </div>
+
     </div>
-</div>
 </template>
 <script>
 export default {
     data() {
         return {
             isTitleVisible: false,
-            isStar1: false,
-            isStar2: false
-        }
+            hoveredImages: [false, false, false, false],
+        };
     },
     mounted() {
         this.isTitleVisible = true;
-        setTimeout(() => {
-            this.isStar1 = true;
-            this.isStar2 = true;
-        }, 600);
     },
-  
-}
+    methods: {
+        showHoverImage(index) {
+            this.hoveredImages[index] = true;
+        },
+        hideHoverImage(index) {
+            this.hoveredImages[index] = false;
+        },
+    },
+};
 </script>
 
 <style lang="scss" scoped>
-.upper{
+.mystack {
+    margin-top: 2%;
+}
+
+.mystack_description {
+    text-align: left;
+    font-family: 'Salwey';
+    color: var(--color-green400);
+    font-size: var(--42px);
+}
+
+.mystack_icon {
+    margin-top: 2%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        filter: grayscale(90%);
+    }
+
+    :hover {
+        filter: grayscale(0);
+        transition: 0.5 ease;
+        cursor: pointer;
+    }
+
+}
+
+.upper {
     text-transform: uppercase;
 }
+
+.descriptio_about_me {
+    color: var(--color-beige);
+    font-weight: normal;
+    margin-top: 4%;
+    font-size: 22px;
+    line-height: 26px;
+    font-family: gt, -apple-system, BlinkMacSystemFont, «Segoe UI», Roboto, Oxygen, Ubuntu, Cantarell, «Open Sans», «Helvetica Neue», sans-serif;
+}
+
 .quote {
     width: 41vw;
     position: relative;
@@ -83,13 +173,14 @@ export default {
     margin-top: 8%;
     display: flex;
     justify-content: center;
-    .about_description{
+
+    .about_description {
         justify-content: end;
     }
 }
 
 .fade-enter-active {
-    transition: all .3s ease-out;
+    transition: all .5s ease-out;
 }
 
 .fade-leave-active {
@@ -114,22 +205,10 @@ export default {
 }
 
 
-.title__text__first {
-    // font-family: 'ambidexter';
-    font-family: var(--titleFont);
-    color: var(--color-green400);
-    background-image: linear-gradient(45deg, rgb(143, 220, 194), rgb(86, 181, 184));
-    -webkit-background-clip: text;
-    /* меняет цвет текста заголовка на прозрачный что бы можно было увидеть градиент*/
-    -webkit-text-fill-color: transparent;
-    position: relative;
-}
 
 .upper {
     font-size: 7vw;
 }
-
-
 
 
 
@@ -141,14 +220,18 @@ export default {
     left: 50%;
     transform: translate(-50%, 0);
     gap: 5%;
+    z-index: 30000000 !important;
 }
 
 .about_picture {
-    height: 55vh;
+    height: 50vh;
     width: 30%;
-    background: red;
-    border-radius: 50% 50% 0 0;
-    border: 5px solid var(--color-green300);
+    // clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 15%);
+
+
+    resize: both;
+    // border-radius: 50% 50% 0 0;
+    // border: 5px solid var(--color-green300);
     display: flex;
     overflow: hidden;
 
@@ -158,13 +241,74 @@ export default {
         width: 100%;
     }
 }
-.intro{
+
+.intro {
     color: var(--color-green400);
-    font-family: 'ambidexter';
+    font-family: 'Salwey';
     font-size: var(--font-h2);
 }
 
 .about_description {
-    width: 60%;
+    width: 70%;
 }
-</style>
+
+
+.underline {
+    font-family: var(--titleFont);
+    color: var(--color-green400);
+    font-size: 32px;
+    line-height: 50px;
+    // margin: 20px 0;
+    text-align: center;
+}
+
+.underline span {
+    position: relative;
+}
+
+.underline svg {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.underline svg path {
+    stroke: rgb(250, 250, 250);
+    stroke-width: 9;
+    fill: none;
+    animation: underline 10s infinite;
+    animation-delay: 0s;
+    opacity: 0;
+}
+
+.underline svg path+path {
+    animation-delay: 0.5s;
+}
+
+@keyframes underline {
+    0% {
+        stroke-dasharray: 0 1500;
+        opacity: 1;
+    }
+
+    15% {
+        stroke-dasharray: 1500 1500;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    90% {
+        stroke-dasharray: 1500 1500;
+        opacity: 0;
+    }
+
+    100% {
+        stroke-dasharray: 0 1500;
+        opacity: 0;
+    }
+}</style>

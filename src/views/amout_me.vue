@@ -28,8 +28,8 @@
             <div class="about" id="about_block">
 
                 <div class="about_picture">
-                    <div></div>
-                    <img src="../assets//images//me.png" alt="my_photo">
+
+                    <img src="../assets//images//I.JPG" alt="my_photo">
 
 
                 </div>
@@ -37,7 +37,7 @@
                 <div class="about_description">
 
                     <h2 class="intro">Меня зовут Алексей. Мне {{ new Date().getFullYear() - 1998 }} лет<br>
-                        Родом из г.Новочеркасска, Ростовской области. Сейчас я живу в Москве.
+                        Родом из г.Новочеркасска, Россия. Сейчас я живу в Москве.
                     </h2>
                     <h4 class="descriptio_about_me">
                         За последние 2.5 с лишним года я работал в различных областях цифрового дизайна, включая
@@ -88,7 +88,36 @@
             </div>
         </transition>
 
-        <!-- <gameVue /> -->
+
+        <div class="voronka" :class="{ 'voronka-visible': isVoronkaVisible }">
+            <div class="left_block">
+                <p class="intro">
+                    Давайте <a class="open_contacts" @click="showContats = !showContats">сотрудничать</a>, если вы
+                    привержены
+                    принципам устойчивого развития,
+                    образования, равенства и ростом
+                    над самим собой <br>
+                </p>
+                <p class="intro_mini">
+                    Я считаю, что мы должны сохранить нашу планету в состоянии, которое не уступает текущему или, возможно,
+                    даже
+                    сделать ее лучше для будущих поколений. <br>
+                    Моя цель - внести свой вклад в достижение этих целей любыми
+                    доступными средствами. Если вы разделяете это убеждение, то нам с Вами по пути
+                </p>
+            </div>
+            <transition name="right_blockfade">
+                <div class="right_block" v-if="showContats">
+                    <a href="https://t.me/Eldenhard" target="_blank"><img src="../assets//images/telegram.png" alt=""
+                            width="60"></a>
+                    <a href="https://vk.com/id61505095" target="_blank"><img src="../assets//images/vk.png" alt=""
+                            width="60"></a>
+                    <a href="https://github.com/eldenhard" target="_blank"><img src="../assets//images/github.png" alt=""
+                            width="60"></a>
+                    <p class="right_block__text">Контакты</p>
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 <script>
@@ -97,10 +126,13 @@ export default {
         return {
             isTitleVisible: false,
             hoveredImages: [false, false, false, false],
+            showContats: false,
+            isVoronkaVisible: false, // Добавляем новое состояние
         };
     },
     mounted() {
         this.isTitleVisible = true;
+        window.addEventListener('scroll', this.handleScroll);
     },
     methods: {
         showHoverImage(index) {
@@ -109,11 +141,128 @@ export default {
         hideHoverImage(index) {
             this.hoveredImages[index] = false;
         },
+        openBlockContacts() {
+            if (this.showContats == false) {
+                console.log(document.querySelector('.right_block'))
+            }
+        },
+        handleScroll() {
+            // Получите позицию элемента .voronka относительно верха страницы
+            const elementPosition = this.$el.querySelector('.voronka').getBoundingClientRect().top;
+
+            // Вычислите высоту окна браузера
+            const windowHeight = window.innerHeight;
+
+            // Проверьте, виден ли элемент .voronka в окне браузера
+            if (elementPosition < windowHeight) {
+                this.isVoronkaVisible = true;
+                // Удалите обработчик скролла после отображения элемента
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        },
+    },
+    beforeDestroy() {
+        // Удалите обработчик скролла при уничтожении компонента
+        window.removeEventListener('scroll', this.handleScroll);
     },
 };
 </script>
 
 <style lang="scss" scoped>
+.open_contacts {
+    animation: blink 1s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.voronka {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+    padding: 20px;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для видимого блока .voronka */
+.voronka-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Добавьте стили для анимации появления .right_block */
+.right_blockfade-enter-active,
+.right_blockfade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.right_blockfade-enter,
+.right_blockfade-leave-to {
+    opacity: 0;
+}
+
+.voronka {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 60%;
+    margin-top: 6%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+
+
+    .left_block {
+        width: 70%;
+
+        .intro_mini {
+            margin-top: 2%;
+            font-size: var(--24px);
+            color: var(--color-beige);
+        }
+    }
+
+    .right_block {
+
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 4%;
+        gap: 8%;
+        align-items: center;
+        align-content: center;
+
+        .right_block__text {
+            color: var(--color-green400);
+            font-family: 'Salwey';
+            font-size: 35px;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+
+.voronka-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    /* Чтобы элемент не был интерактивным при скрытии */
+}
+
 .hover-container {
     position: relative;
     display: inline-block;
@@ -241,7 +390,7 @@ export default {
 
 
 .about {
-    margin-top: 8%;
+    margin-top: 6%;
     position: relative;
     width: 65%;
     display: flex;
@@ -252,8 +401,9 @@ export default {
 }
 
 .about_picture {
-    height: 50vh;
-    width: 30%;
+    height: 63vh;
+    width: 50%;
+    border-radius: 10px;
     // clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 15%);
 
 

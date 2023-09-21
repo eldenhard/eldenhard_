@@ -67,7 +67,7 @@ export default {
     transition: background 0.3s ease;
     display: flex;
     justify-content: center;
-    width: 25vw;
+    width: min(70%, 500px);
     z-index: 10000000000000000000000;
     /* Ширина навбара */
 }
@@ -110,7 +110,7 @@ export default {
 
 
 .router-link-active {
-  background: rgba(87, 141, 121, 0.4);
+  background: rgba(87, 141, 121, 0.6);
   border-radius: var(--radius-nav);
   display: flex;
   align-items: center;

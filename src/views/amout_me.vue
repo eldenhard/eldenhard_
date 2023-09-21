@@ -100,9 +100,10 @@
                             <h6 class="timeline-card-subhead">Май 2021 — Март 2022</h6>
                         </div>
                         <ul class="timeline-card-text">
-                            <li>Написание скриптов для легаси кода, выполняющих функции выгрузки, преобразования и загрузки данных; </li>
+                            <li>Написание скриптов для легаси кода, выполняющих функции выгрузки, преобразования и загрузки
+                                данных; </li>
                             <li>Разработка макетов и графических элементов интерфейсов для
-                            пользователя; </li>
+                                пользователя; </li>
                             <li>Контроль качества реализации интерфейса;</li>
                             <li>Разработка программного обеспечения обработки данных; </li>
                             <li>Проектирование и прототипирование интерфейсов программных решений</li>
@@ -153,12 +154,12 @@
             </div>
             <transition name="right_blockfade">
                 <div class="right_block" v-if="showContats">
-                    <a href="https://t.me/Eldenhard" target="_blank"><img src="../assets//images/telegram.png" alt=""
-                            width="60"></a>
-                    <a href="https://vk.com/id61505095" target="_blank"><img src="../assets//images/vk.png" alt=""
-                            width="60"></a>
-                    <a href="https://github.com/eldenhard" target="_blank"><img src="../assets//images/github.png" alt=""
-                            width="60"></a>
+                    <a href="https://t.me/Eldenhard" target="_blank" class="img_contacts1"><img
+                            src="../assets//images/telegram.png" alt="" width="60"></a>
+                    <a href="https://vk.com/id61505095" target="_blank" class="img_contacts2"><img
+                            src="../assets//images/vk.png" alt="" width="60"></a>
+                    <a href="https://github.com/eldenhard" target="_blank" class="img_contacts3"><img
+                            src="../assets//images/github.png" alt="" width="60"></a>
                     <p class="right_block__text">Контакты</p>
                 </div>
             </transition>
@@ -178,7 +179,7 @@ export default {
         return {
             isTitleVisible: false,
             hoveredImages: [false, false, false, false],
-            showContats: false,
+            showContats: true,
             isVoronkaVisible: false, // Добавляем новое состояние
             isTimelineVisible: false, // Добавл
         };
@@ -237,6 +238,12 @@ footer {
 
 }
 
+.img_contacts1:hover,
+.img_contacts2:hover,
+.img_contacts3:hover {
+
+}
+
 .chavo {
     text-align: center;
     font-size: var(--font-h2);
@@ -268,7 +275,7 @@ footer {
             transform: translateX(-50%);
             width: 4px;
             height: calc(100% - 10px);
-            background-color: rgb(0, 40, 58, 0.8);
+            background-color: rgb(0, 40, 58, 0.7);
             animation: line 5s linear;
 
             @media (max-width: 767px) {
@@ -294,7 +301,7 @@ footer {
                 height: 20px;
                 border-radius: 50%;
                 border: 3px solid #fff;
-                background: rgb(0, 40, 58, 0.8);
+                background: rgb(0, 40, 58, 0.7);
                 animation: fadeIn 1.5s;
                 animation-fill-mode: both;
             }
@@ -302,7 +309,7 @@ footer {
             .timeline-card-wrap {
                 height: 100%;
                 margin-right: 35px;
-                background-color: rgb(0, 40, 58, 0.8);
+                background-color: rgb(0, 40, 58, 0.7);
                 border-radius: 10px;
                 position: relative;
                 padding: 30px;
@@ -320,7 +327,7 @@ footer {
                     top: -8px;
                     height: 8px;
                     width: calc(100% - 60px);
-                    background-color: rgb(0, 40, 58, 0.8);
+                    background-color: rgb(0, 40, 58, 0.7);
                     border-radius: 5px 5px 0 0;
                     opacity: 0.3;
                 }
@@ -332,7 +339,7 @@ footer {
                 //   right: -8px;
                 //   width: 20px;
                 //   height: 20px;
-                //   background-color:  rgb(0, 40, 58, 0.8);
+                //   background-color:  rgb(0, 40, 58, 0.7);
                 //   border-radius: 5px;
                 //   transform: rotate(45deg);
                 // }
@@ -381,7 +388,7 @@ footer {
                     line-height: 24px;
                     font-weight: 400;
                     color: var(--color-beige);
-                    line-height: 20px;
+                    line-height: 22px;
                     margin: 25px 0 0 4%;
 
                     @media (max-width: 767px) {
@@ -413,7 +420,7 @@ footer {
                             right: unset;
                             border-left: none;
                             left: -8px;
-                            border-right: 10px solid rgb(0, 40, 58, 0.8);
+                            border-right: 10px solid rgb(0, 40, 58, 0.7);
                         }
                     }
                 }
@@ -790,5 +797,4 @@ footer {
         stroke-dasharray: 0 1500;
         opacity: 0;
     }
-}
-</style>
+}</style>

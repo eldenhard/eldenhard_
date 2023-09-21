@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div style=" display: flex;
+    flex-direction: column;">
 
         <transition name="fade">
             <div v-if="isTitleVisible" class="test">
@@ -8,7 +9,7 @@
                         <span class="title__text__first underline">
 
                             <span class="underline-text title__text__first">
-                                <span class="upper">F</span>rontend-<span class="upper">D</span>eveloper
+                                Frontend-Developer
 
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
                                     <path d="M5,125.4c30.5-3.8,137.9-7.6,177.3-7.6c117.2,0,252.2,4.7,312.7,7.6"></path>
@@ -88,6 +89,50 @@
             </div>
         </transition>
 
+        <h2 class="chavo">Где был ? Чаво видел?</h2>
+
+        <div class="timeline-main">
+            <div class="timeline-wrap">
+                <div class="timeline-card">
+                    <div class="timeline-card-wrap">
+                        <div class="card-head-wrap">
+                            <h2 class="timeline-card-head">ООО "Ай-Пи-Эм Групп"</h2>
+                            <h6 class="timeline-card-subhead">Май 2021 — Март 2022</h6>
+                        </div>
+                        <ul class="timeline-card-text">
+                            <li>Написание скриптов для легаси кода, выполняющих функции выгрузки, преобразования и загрузки данных; </li>
+                            <li>Разработка макетов и графических элементов интерфейсов для
+                            пользователя; </li>
+                            <li>Контроль качества реализации интерфейса;</li>
+                            <li>Разработка программного обеспечения обработки данных; </li>
+                            <li>Проектирование и прототипирование интерфейсов программных решений</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-card-wrap">
+                        <div class="card-head-wrap">
+                            <h2 class="timeline-card-head">ООО "ЛИДЕКС"</h2>
+                            <h6 class="timeline-card-subhead">Март 2022 по наст. время</h6>
+                        </div>
+                        <ul class="timeline-card-text">
+                            <li>Разработка Frontend с нуля;</li>
+                            <li>Проектирование пользовательских интерфейсов;</li>
+                            <li>Кроссбраузерная и адаптивная верстка;</li>
+                            <li>Оптимизация, баг-фиксинг, рефакторинг;</li>
+                            <li>Разработка клиент-серверных приложений;</li>
+                            <li>SPA;</li>
+                            <li>Адаптивная, кроссбраузерная вёрстка;</li>
+                            <li>Ведение проектов;</li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
         <div class="voronka" :class="{ 'voronka-visible': isVoronkaVisible }">
             <div class="left_block">
@@ -118,6 +163,13 @@
                 </div>
             </transition>
         </div>
+
+
+        <footer>
+            <h4>© 2023 ELDENHARD <br>
+                <h1 style="font-size: 12px; text-align: center; color: rgb(240, 248, 255, 0.5);">Решетило Алексей</h1>
+            </h4>
+        </footer>
     </div>
 </template>
 <script>
@@ -128,6 +180,7 @@ export default {
             hoveredImages: [false, false, false, false],
             showContats: false,
             isVoronkaVisible: false, // Добавляем новое состояние
+            isTimelineVisible: false, // Добавл
         };
     },
     mounted() {
@@ -169,9 +222,254 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+footer {
+    flex: 0 0 auto;
+    height: 10vh;
+    width: 100%;
+    z-index: 1;
+    // background: black;
+    font-family: var(--bodyFont);
+    color: var(--color-beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+
+}
+
+.chavo {
+    text-align: center;
+    font-size: var(--font-h2);
+    margin-top: 6%;
+    color: var(--color-green400);
+    font-family: 'Salwey';
+    z-index: 5;
+}
+
+.timeline-main {
+    width: 65%;
+    padding: 25px;
+    position: relative;
+    left: 50%;
+    margin-top: 2%;
+    transform: translate(-50%, 0);
+
+    .timeline-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: calc(100% - 10px);
+            background-color: rgb(0, 40, 58, 0.8);
+            animation: line 5s linear;
+
+            @media (max-width: 767px) {
+                left: 95%;
+            }
+        }
+
+        .timeline-card {
+            width: 50%;
+            margin-right: auto;
+            position: relative;
+
+            @media (max-width: 767px) {
+                width: 95%;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 10px;
+                right: -10px;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                background: rgb(0, 40, 58, 0.8);
+                animation: fadeIn 1.5s;
+                animation-fill-mode: both;
+            }
+
+            .timeline-card-wrap {
+                height: 100%;
+                margin-right: 35px;
+                background-color: rgb(0, 40, 58, 0.8);
+                border-radius: 10px;
+                position: relative;
+                padding: 30px;
+                animation: fadeInRight 2.5s;
+                animation-fill-mode: both;
+
+                @media (max-width: 767px) {
+                    padding: 20px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 30px;
+                    top: -8px;
+                    height: 8px;
+                    width: calc(100% - 60px);
+                    background-color: rgb(0, 40, 58, 0.8);
+                    border-radius: 5px 5px 0 0;
+                    opacity: 0.3;
+                }
+
+                // &::after {
+                //   content: "";
+                //   position: absolute;
+                //   top: 10px;
+                //   right: -8px;
+                //   width: 20px;
+                //   height: 20px;
+                //   background-color:  rgb(0, 40, 58, 0.8);
+                //   border-radius: 5px;
+                //   transform: rotate(45deg);
+                // }
+                .card-head-wrap {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+
+                    @media (max-width: 1199px) {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+                    }
+
+                    .timeline-card-head {
+                        font-size: 28px;
+                        line-height: 38px;
+                        font-weight: 500;
+                        color: #fff;
+                        margin-bottom: 0;
+
+                        @media (max-width: 767px) {
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+
+                    .timeline-card-subhead {
+                        font-size: 16px;
+                        line-height: 26px;
+                        font-weight: 400;
+                        color: #bdbdbd;
+                        margin-bottom: 0;
+                        font-style: italic;
+
+                        @media (max-width: 767px) {
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+
+                .timeline-card-text {
+                    font-size: var(--16px);
+                    line-height: 24px;
+                    font-weight: 400;
+                    color: var(--color-beige);
+                    line-height: 20px;
+                    margin: 25px 0 0 4%;
+
+                    @media (max-width: 767px) {
+                        font-size: 12px;
+                        line-height: 22px;
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                @media (min-width: 768px) {
+                    margin-left: auto;
+                    margin-right: 0;
+
+                    &::after {
+                        right: unset;
+                        left: -10px;
+                        animation-delay: 2.6s;
+                    }
+
+                    .timeline-card-wrap {
+                        margin-right: 0;
+                        margin-left: 35px;
+                        animation: fadeInLeft 2.5s;
+                        animation-fill-mode: both;
+                        animation-delay: 2.5s;
+
+                        &::after {
+                            right: unset;
+                            border-left: none;
+                            left: -8px;
+                            border-right: 10px solid rgb(0, 40, 58, 0.8);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes line {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: calc(100% - 10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .open_contacts {
     animation: blink 1s linear infinite;
     cursor: pointer;
+    font-style: italic;
 }
 
 @keyframes blink {
@@ -192,7 +490,7 @@ export default {
 .voronka {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s, transform 1s;
+    transition: opacity 2s, transform 2s;
     padding: 20px;
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -318,9 +616,7 @@ export default {
 
 }
 
-.upper {
-    text-transform: uppercase;
-}
+
 
 .descriptio_about_me {
     color: var(--color-beige);
@@ -379,18 +675,22 @@ export default {
 .title__text__first {
     text-align: center;
     font-size: 6vw;
+    text-transform: uppercase;
+    color: var(--color-green400);
+    background-image: linear-gradient(45deg, rgb(143, 220, 194), rgb(86, 181, 184));
+    -webkit-background-clip: text;
+    /* меняет цвет текста заголовка на прозрачный что бы можно было увидеть градиент*/
+    -webkit-text-fill-color: transparent;
 }
 
 
 
-.upper {
-    font-size: 7vw;
-}
+
 
 
 
 .about {
-    margin-top: 6%;
+    margin-top: 8%;
     position: relative;
     width: 65%;
     display: flex;

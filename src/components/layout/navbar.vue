@@ -63,7 +63,7 @@ export default {
     background: none;
     margin-top: 1%;
     padding: 1rem;
-    z-index: var(--zindex-navbar);
+
     transition: background 0.3s ease;
     display: flex;
     justify-content: center;
@@ -100,12 +100,13 @@ export default {
 }
 
 .content-overlay {
-    // background: var(--color-green800);
     backdrop-filter: blur(10px);
     /* Размытие заднего фона */
     transition: backdrop-filter 0.3s ease;
 }
-
+.active{
+  background: rgba(59, 189, 145, 0.92) ;
+}
 
 
 .router-link-active {

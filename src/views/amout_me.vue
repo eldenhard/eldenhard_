@@ -89,7 +89,7 @@
             </div>
         </transition>
 
-        <h2 class="chavo">Где был ? Чаво видел?</h2>
+        <h2 class="chavo" :class="{ 'voronka-visible': isVoronkaVisible }">Где был ? Чаво видел?</h2>
 
         <div class="timeline-main">
             <div class="timeline-wrap">

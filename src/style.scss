@@ -150,16 +150,16 @@ body {
   0% {background-position: 0%}
   100% {background-position: 100%}
 }
-body::before {
-  content: "";
-  position: fixed;
-  bottom: 0; /* Перекрывает снизу */
-  left: 0;
-  width: 100%;
-  height: 85vh; /* Закрывает 25% нижней части экрана */
-  background: linear-gradient(to bottom, transparent,  var(--color-green800) ); /* Градиент от прозрачного к черному снизу */
-  z-index: 0; /* Перекрывает body */
-}
+// body::before {
+//   content: "";
+//   position: fixed;
+//   bottom: 0; /* Перекрывает снизу */
+//   left: 0;
+//   width: 100%;
+//   height: 85vh; /* Закрывает 25% нижней части экрана */
+//   background: linear-gradient(to bottom, transparent,  var(--color-green800) ); /* Градиент от прозрачного к черному снизу */
+//   z-index: 0; /* Перекрывает body */
+// }
 // @keyframes wave {
 //   from {
 //     background-position: 100% 0;

@@ -25,69 +25,67 @@
 
             </div>
         </transition>
-        <transition name="fade">
-            <div class="about" id="about_block">
+        <div class="about" id="about_block">
 
-                <div class="about_picture">
+            <div class="about_picture">
 
-                    <img src="../assets//images//I.JPG" alt="my_photo">
+                <img src="../assets//images//I.JPG" alt="my_photo">
 
 
-                </div>
+            </div>
 
-                <div class="about_description">
+            <div class="about_description">
 
-                    <h2 class="intro">Меня зовут Алексей. Мне {{ new Date().getFullYear() - 1998 }} лет<br>
-                        Родом из г.Новочеркасска, Россия. Сейчас я живу в Москве.
-                    </h2>
-                    <h4 class="descriptio_about_me">
-                        За последние 2.5 с лишним года я работал в различных областях цифрового дизайна, включая
-                        фронтенд-разработку, электронную почту, маркетинг и UI/UX приложений. Я горжусь тем, что носил много
-                        шляп.
-                        <br><br>
-                        В настоящее время я занимаюсь созданием внутренней корпоративной системы железнодорожной компании
-                        Транспортные Технологии
-                        в качестве Frontend-разработчика.
-                    </h4>
+                <h2 class="intro">Меня зовут Алексей. Мне {{ new Date().getFullYear() - 1998 }}<br>
+                    Родом из г.Новочеркасска, Россия. Сейчас я живу в Москве.
+                </h2>
+                <h4 class="descriptio_about_me">
+                    За последние 2.5 с лишним года я работал в различных областях цифрового дизайна, включая
+                    фронтенд-разработку, электронную почту, маркетинг и UI/UX приложений. Я горжусь тем, что носил много
+                    шляп.</h4>
 
-                    <div class="mystack">
-                        <p class="mystack_description">Мой стэк</p>
-                        <div class="mystack_icon">
-                            <div class="hover-container" @mouseover="showHoverImage(0)" @mouseout="hideHoverImage(0)">
-                                <img src="../assets//images/vue.png" alt="">
-                                <ul v-if="hoveredImages[0]" class="hover-list">
-                                    <li>Vue 2-3</li>
-                                    <li>VueX</li>
-                                    <li>VueRouter</li>
-                                </ul>
-                            </div>
-                            <div class="hover-container" @mouseover="showHoverImage(1)" @mouseout="hideHoverImage(1)">
-                                <img src="../assets//images/html.png" alt="">
-                                <ul v-if="hoveredImages[1]" class="hover-list">
-                                    <li>HTML5</li>
-                                </ul>
-                            </div>
-                            <div class="hover-container" @mouseover="showHoverImage(2)" @mouseout="hideHoverImage(2)">
-                                <img src="../assets//images/css.png" alt="">
-                                <ul v-if="hoveredImages[2]" class="hover-list">
-                                    <li>CSS3</li>
-                                    <li>Sass/SCSS</li>
-                                </ul>
-                            </div>
-                            <div class="hover-container" @mouseover="showHoverImage(3)" @mouseout="hideHoverImage(3)">
-                                <img src="../assets//images/js.png" alt="">
-                                <ul v-if="hoveredImages[3]" class="hover-list">
-                                    <li>JavaScript</li>
-                                    <li>ES6-10</li>
-                                    <li>AmCharts</li>
-                                    <li>Axios</li>
-                                </ul>
-                            </div>
+                <h4 class="descriptio_about_me">
+                    В настоящее время я создаю внутреннюю корпоративную систему учета железнодорожной компании
+                    в качестве Frontend-разработчика.
+                </h4>
+
+                <div class="mystack">
+                    <p class="mystack_description">Мой стэк</p>
+                    <div class="mystack_icon">
+                        <div class="hover-container" @mouseover="showHoverImage(0)" @mouseout="hideHoverImage(0)">
+                            <img src="../assets//images/vue.png" alt="">
+                            <ul v-if="hoveredImages[0]" class="hover-list">
+                                <li>Vue 2-3</li>
+                                <li>VueX</li>
+                                <li>VueRouter</li>
+                            </ul>
+                        </div>
+                        <div class="hover-container" @mouseover="showHoverImage(1)" @mouseout="hideHoverImage(1)">
+                            <img src="../assets//images/html.png" alt="">
+                            <ul v-if="hoveredImages[1]" class="hover-list">
+                                <li>HTML5</li>
+                            </ul>
+                        </div>
+                        <div class="hover-container" @mouseover="showHoverImage(2)" @mouseout="hideHoverImage(2)">
+                            <img src="../assets//images/css.png" alt="">
+                            <ul v-if="hoveredImages[2]" class="hover-list">
+                                <li>CSS3</li>
+                                <li>Sass/SCSS</li>
+                            </ul>
+                        </div>
+                        <div class="hover-container" @mouseover="showHoverImage(3)" @mouseout="hideHoverImage(3)">
+                            <img src="../assets//images/js.png" alt="">
+                            <ul v-if="hoveredImages[3]" class="hover-list">
+                                <li>JavaScript</li>
+                                <li>ES6-10</li>
+                                <li>AmCharts</li>
+                                <li>Axios</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </transition>
+        </div>
 
         <h2 class="chavo" :class="{ 'voronka-visible': isVoronkaVisible }">Где был ? Чаво видел?</h2>
 
@@ -135,9 +133,9 @@
         </div>
 
 
-        <div class="voronka" :class="{ 'voronka-visible': isVoronkaVisible }">
+        <div class="voronka mediavoronka" :class="{ 'voronka-visible': isVoronkaVisible }">
             <div class="left_block">
-                <p class="intro">
+                <p class="intro coperation">
                     Давайте <a class="open_contacts" @click="showContats = !showContats">сотрудничать</a>, если вы
                     привержены
                     принципам устойчивого развития,
@@ -185,9 +183,14 @@ export default {
         };
     },
     mounted() {
-        console.log(document.head)
+
         this.isTitleVisible = true;
         window.addEventListener('scroll', this.handleScroll);
+        document.querySelector('.about').classList.add('about_animate')
+
+        // if(window.innerWidth < 650){
+        //     this.showContats = false
+        // }
     },
     methods: {
         showHoverImage(index) {
@@ -200,6 +203,10 @@ export default {
             if (this.showContats == false) {
                 console.log(document.querySelector('.right_block'))
             }
+        },
+        getAnimationByAbout() {
+            document.querySelector('.about').classList.add('about_animate')
+
         },
         handleScroll() {
             // Получите позицию элемента .voronka относительно верха страницы
@@ -224,6 +231,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mediavoronka{
+    // background: rgb(35, 56, 49, 0.5);
+    background: linear-gradient( var(--color-green800), rgb(35, 56, 49, 0.2), rgb(35, 56, 49, 0.4));
+    width: 75vw !important;
+    min-height: 45vh;
+    height:auto ;
+    border-radius: 10px;
+}
+.about_animate {
+    animation: about_animate 0.8s ease-out;
+}
+
+@keyframes about_animate {
+    from {
+        opacity: 0;
+        margin-top: -1px;
+
+    }
+
+    to {
+        opacity: 1;
+      
+        
+    }
+}
+
 footer {
     flex: 0 0 auto;
     height: 10vh;
@@ -668,6 +701,8 @@ footer {
     opacity: 0;
 }
 
+// //////////
+
 
 .title__text {
     display: flex;
@@ -795,19 +830,22 @@ footer {
 }
 
 @media screen and (max-width: 650px) {
-    .title__text__first > svg{
+    .title__text__first>svg {
         display: none;
     }
-    span.title__text__first{
+
+    span.title__text__first {
         font-size: 8vw;
     }
-    .about{
+
+    .about {
         display: flex;
         flex-direction: column;
         width: 100%;
         margin-top: 2%;
         position: relative;
-        .about_picture{
+
+        .about_picture {
             position: relative;
             width: 95%;
             left: 50%;
@@ -818,14 +856,16 @@ footer {
             height: 50vh;
             resize: none;
         }
-        img{
+
+        img {
             position: relative;
             width: 90%;
             border-radius: 10px;
-            
+
         }
     }
-    .about_description{
+
+    .about_description {
         margin-top: 5%;
         width: 85%;
         position: relative;
@@ -833,21 +873,33 @@ footer {
         transform: translate(-50%, 0);
         display: flex;
         flex-direction: column;
-        .intro{
-            font-size: 8vw;
+
+        .intro {
+            font-size: 7.2vw;
+            line-height: 4vh;
             text-align: justify;
         }
+
+        .descriptio_about_me {
+            font-size: calc(var(--font-h4) - 2px);
+            text-indent: 1.5rem;
+            text-align: justify;
+
+        }
     }
-    .mystack{
+
+    .mystack {
         position: relative;
         left: 50%;
         transform: translate(-50%, 0);
         // background: red;
         margin-top: 8%;
-        .mystack_description{
+
+        .mystack_description {
             text-align: center;
         }
-        .mystack_icon{
+
+        .mystack_icon {
             display: flex;
             position: relative;
             left: 50%;
@@ -858,5 +910,77 @@ footer {
             justify-content: space-between;
         }
     }
-}
-</style>
+
+    .hover-list {
+        li {
+            font-size: 15px;
+        }
+    }
+
+    .chavo {
+        margin-top: 25%;
+        font-size: calc(var(--42px) - 50%)
+    }
+
+    .timeline-main {
+        width: 80%;
+    }
+
+    .timeline-card-text>li {
+        font-size: 14px;
+    }
+
+    .coperation {
+        width: 100%;
+        font-size: 7.2vw;
+        line-height: 4vh;
+        text-align: justify;
+    }
+
+    .intro_mini {
+        font-size: calc(var(--font-h4) - 2px) !important;
+        text-indent: 1.5rem;
+    }
+
+    .mediavoronka {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .left_block {
+        width: 100% !important;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .voronka .right_block {
+        width: 100%;
+        display: flex;
+        margin-top: 6%;
+        justify-content: space-between;
+        flex-direction: row !important;
+        height: 15vh;
+        position: relative;
+
+        .right_block__text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            text-align: center;
+        }
+
+        .img_contacts1,
+        .img_contacts2,
+        .img_contacts3 {
+            margin-top: 20%;
+
+            img {
+                width: 12vw;
+            }
+        }
+    }
+}</style>

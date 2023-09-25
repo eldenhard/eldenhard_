@@ -3,12 +3,12 @@
     flex-direction: column;">
 
         <transition name="fade">
-            <div v-if="isTitleVisible" class="test">
+            <div v-if="isTitleVisible">
                 <div class="title">
                     <h1 class="title__text">
                         <span class="title__text__first underline">
 
-                            <span class="underline-text title__text__first">
+                            <span class="title__text__first frontend">
                                 Frontend-Developer
 
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
@@ -185,6 +185,7 @@ export default {
         };
     },
     mounted() {
+        console.log(document.head)
         this.isTitleVisible = true;
         window.addEventListener('scroll', this.handleScroll);
     },
@@ -235,12 +236,6 @@ footer {
     align-items: center;
     justify-content: center;
     margin-top: 6%;
-
-}
-
-.img_contacts1:hover,
-.img_contacts2:hover,
-.img_contacts3:hover {
 
 }
 
@@ -650,7 +645,7 @@ footer {
     position: relative;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
-    margin-top: 8%;
+    margin-top: calc(8% + 50px);
     display: flex;
     justify-content: center;
 
@@ -797,4 +792,71 @@ footer {
         stroke-dasharray: 0 1500;
         opacity: 0;
     }
-}</style>
+}
+
+@media screen and (max-width: 650px) {
+    .title__text__first > svg{
+        display: none;
+    }
+    span.title__text__first{
+        font-size: 8vw;
+    }
+    .about{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2%;
+        position: relative;
+        .about_picture{
+            position: relative;
+            width: 95%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            resize: none;
+        }
+        img{
+            position: relative;
+            width: 90%;
+            border-radius: 10px;
+            
+        }
+    }
+    .about_description{
+        margin-top: 5%;
+        width: 85%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        flex-direction: column;
+        .intro{
+            font-size: 8vw;
+            text-align: justify;
+        }
+    }
+    .mystack{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+        // background: red;
+        margin-top: 8%;
+        .mystack_description{
+            text-align: center;
+        }
+        .mystack_icon{
+            display: flex;
+            position: relative;
+            left: 50%;
+            margin-top: 8%;
+            transform: translate(-50%, 0);
+            // background: white;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}
+</style>

@@ -87,7 +87,7 @@ export default {
     /* Распределение пространства между элементами */
     max-width: calc(20% - 1rem);
     /* Максимальная ширина каждого элемента */
-    padding: 1.5% 3%;
+    padding: 1.5% min(5%, 1vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,6 +97,8 @@ export default {
     border-radius: var(--radius-nav) !important;
     cursor: pointer;
     text-decoration: none;
+    font-size: min(16px, 3vw);
+
 }
 
 .content-overlay {

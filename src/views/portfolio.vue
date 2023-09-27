@@ -1,8 +1,7 @@
 <template>
-    
     <div class="gradient-container">
 
-      
+
         <transition name="fade">
             <div v-if="isTitleVisible" class="test">
                 <div class="title">
@@ -36,11 +35,35 @@
             </div>
         </transition>
 
+
+        <div class="my_portfolio">
+            <section class="section1">
+                <aestheticaVue />
+            </section>
+            <section class="section2">
+                <transtachVue />
+            </section>
+        </div>
+
+
+        <div class="my_portfolio">
+            <section class="section1">
+                <transtachVue />
+            </section>
+            <section class="section2">
+                <transtachVue />
+            </section>
+        </div>
+
     </div>
 </template>
 
 <script>
+import aestheticaVue from '../components/common/aesthetica.vue';
+import transtachVue from '../components/common/transtach.vue';
+
 export default {
+    components: { aestheticaVue, transtachVue },
     data() {
         return {
             isTitleVisible: false,
@@ -72,7 +95,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.my_portfolio{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 85vw;
+    margin-top: 10vh;
+    gap: 5%;
+    display: flex;
 
+    // background: white;
+    .section1{
+        width: 40%;
+    }
+    .section2{
+        width: 60%;
+
+    }
+}
 .quote {
     // z-index: 30000000 !important;
     width: 41vw;

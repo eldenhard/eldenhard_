@@ -5,9 +5,9 @@
             <span>Транспортные Технологии</span>
         </header>
         <main>
-            <iframe src="https://eldenhard.github.io/" frameborder="0">
+            <!-- <iframe src="https://eldenhard.github.io/" frameborder="0">
 
-            </iframe>
+            </iframe> -->
         </main>
     </section>
 </template>

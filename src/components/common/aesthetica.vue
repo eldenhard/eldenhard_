@@ -1,10 +1,10 @@
 <template>
-    <section id="block" class="block container" @mouseout="MouseOutClass">
+    <section id="block_aest" class="block container" @mouseout="MouseOutClass">
         <header>
             <p class="block__title">Система учета з/п</p>
             <p class="block__title_section">aesthetica</p>
         </header>
-        <main class="main_block" id="main_block" @mouseout="MouseOutmain_block">
+        <main class="main_block" id="main_block_aest" @mouseout="MouseOutmain_block">
             <img src="../../assets//images/aesthetica.png" alt="система учет зп компании">
         </main>
     </section>
@@ -18,10 +18,10 @@ export default {
         }
     }, methods: {
         MouseOutClass() {
-            block.classList.add('block_mouse_over')
+            block_aest.classList.add('block_mouse_over')
         },
         MouseOutmain_block() {
-            main_block.classList.add('main_block_mouse_over')
+            main_block_aest.classList.add('main_block_mouse_over')
         }
     }
 }

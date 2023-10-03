@@ -46,14 +46,14 @@
         </div>
 
 
-        <div class="my_portfolio_second">
+        <!-- <div class="my_portfolio_second">
             <section class="section3">
                 <elldenhardViewVue />
             </section>
             <section class="section4">
                 <transtachVue />
             </section>
-        </div>
+        </div> -->
 
     </div>
 </template>

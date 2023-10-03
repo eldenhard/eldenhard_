@@ -46,11 +46,11 @@
         </div>
 
 
-        <div class="my_portfolio">
-            <section class="section1">
-                <transtachVue />
+        <div class="my_portfolio_second">
+            <section class="section3">
+                <elldenhardViewVue />
             </section>
-            <section class="section2">
+            <section class="section4">
                 <transtachVue />
             </section>
         </div>
@@ -60,10 +60,11 @@
 
 <script>
 import aestheticaVue from '../components/common/aesthetica.vue';
+import elldenhardViewVue from '../components/common/elldenhardView.vue';
 import transtachVue from '../components/common/transtach.vue';
 
 export default {
-    components: { aestheticaVue, transtachVue },
+    components: { aestheticaVue, transtachVue, elldenhardViewVue },
     data() {
         return {
             isTitleVisible: false,
@@ -95,6 +96,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.my_portfolio_second{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 85vw;
+    margin-top: 10vh;
+    gap: 5%;
+    display: flex;
+
+    // background: white;
+    .section3{
+        width: 60%;
+    }
+    .section4{
+        width: 40%;
+
+    }
+}
 .my_portfolio{
     position: relative;
     left: 50%;

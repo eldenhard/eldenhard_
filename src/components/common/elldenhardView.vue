@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .block{
-    background: #A3DCD4;
+    background: #E8B89C;
     border-radius: var(--64px);
     height: 52vh;
 }

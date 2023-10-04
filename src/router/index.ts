@@ -5,7 +5,7 @@ import hobby from '../views/hobby.vue'
 // import errorPage from '../views/error_page.vue'
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/',
+        path: '/portfolio',
         name: 'Home',
         component: Home,
     },

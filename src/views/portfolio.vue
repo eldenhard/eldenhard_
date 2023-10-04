@@ -46,22 +46,27 @@
         </div>
 
 
-        <!-- <div class="my_portfolio_second">
+        <div class="my_portfolio_second">
             <section class="section3">
                 <elldenhardViewVue />
             </section>
             <section class="section4">
-                <transtachVue />
+                <!-- <transtachVue /> -->
             </section>
-        </div> -->
-
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <footer class="main_footer">
+            <h4>© 2023 ELDENHARD <br>
+                <h1 style="font-size: 12px; text-align: center; color: rgb(240, 248, 255, 0.5);">Решетило Алексей</h1>
+            </h4>
+        </footer>
     </div>
 </template>
 
 <script>
-import aestheticaVue from '../components/common/aesthetica.vue';
-import elldenhardViewVue from '../components/common/elldenhardView.vue';
-import transtachVue from '../components/common/transtach.vue';
+import aestheticaVue from '../components/common/Aest/aesthetica.vue';
+import elldenhardViewVue from '../components/common/Elden/elldenhardView.vue';
+import transtachVue from '../components/common/Transtech/transtach.vue';
 
 export default {
     components: { aestheticaVue, transtachVue, elldenhardViewVue },
@@ -73,6 +78,7 @@ export default {
         }
     },
     mounted() {
+        window.scrollTo(0, 0)
         this.isTitleVisible = true;
         setTimeout(() => {
             this.isStar1 = true;
@@ -96,7 +102,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.my_portfolio_second{
+.main_footer {
+  flex: 0 0 auto;
+  height: 10vh;
+  width: 100%;
+  z-index: 10000 !important;
+  // background: black;
+  font-family: var(--bodyFont);
+  color: var(--color-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+
+}
+.my_portfolio_second {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -106,15 +127,17 @@ export default {
     display: flex;
 
     // background: white;
-    .section3{
+    .section3 {
         width: 60%;
     }
-    .section4{
+
+    .section4 {
         width: 40%;
 
     }
 }
-.my_portfolio{
+
+.my_portfolio {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -124,14 +147,16 @@ export default {
     display: flex;
 
     // background: white;
-    .section1{
+    .section1 {
         width: 40%;
     }
-    .section2{
+
+    .section2 {
         width: 60%;
 
     }
 }
+
 .quote {
     // z-index: 30000000 !important;
     width: 41vw;
@@ -286,5 +311,4 @@ footer {
     left: -10%;
     bottom: -25%;
 
-}
-</style>
+}</style>

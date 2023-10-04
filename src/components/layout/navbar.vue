@@ -1,7 +1,7 @@
 <template>
   <div :class="[defaultClass, activeScroll]">
     <div class="navbar__content">
-      <router-link to="/" class="navbar__content__link">
+      <router-link to="/portfolio" class="navbar__content__link">
         Работы
       </router-link>
       <router-link to="/about" class="navbar__content__link">

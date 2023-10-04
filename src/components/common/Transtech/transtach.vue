@@ -1,11 +1,11 @@
 <template>
-    <section id="block_trans" class="block container" @mouseout="MouseOutClass">
+    <section id="block_trans" class="block container" @mouseout="MouseOutClass" @click="ChangePage()">
         <header>
             <p class="block__title">Корпоративная система и сайт компании</p>
             <p class="block__title_section">Транспортные технологии</p>
         </header>
         <main class="main_block" id="main_block_trans" @mouseout="MouseOutmain_block">
-            <img src="../../assets//images/trans.png" alt="система учет зп компании">
+            <img src="../../../assets//images/trans.png" alt="система учет зп компании">
         </main>
     </section>
 </template>
@@ -22,6 +22,9 @@ export default {
         },
         MouseOutmain_block() {
             document.getElementById('main_block_trans').classList.add('main_block_mouse_over')
+        },
+        ChangePage(){
+            
         }
     }
 }

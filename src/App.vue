@@ -12,6 +12,10 @@
 import navbar from './components/layout/navbar.vue'
 export default {
     components: { navbar },
+    mounted(){
+        this.$router.push('portfolio');
+        console.log(this.$route)
+    },
     data() {
         return {
 

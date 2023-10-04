@@ -1,11 +1,13 @@
 <template>
-    <section id="block_aest" class="block container" @mouseout="MouseOutClass">
+    <section class="block">
         <header>
-            <p class="block__title">Система учета з/п</p>
-            <p class="block__title_section">aesthetica</p>
+            <p>Макет сайта по оси Z</p>
+            <a href="https://eldenhard.github.io/" target="_blank" rel="noopener noreferrer"><span>eldenhard.github.io</span></a>
         </header>
-        <main class="main_block" id="main_block_aest" @mouseout="MouseOutmain_block">
-            <img src="../../assets//images/aesthetica.png" alt="система учет зп компании">
+        <main>
+            <iframe src="https://eldenhard.github.io/" frameborder="0">
+
+            </iframe>
         </main>
     </section>
 </template>
@@ -18,18 +20,32 @@ export default {
         }
     }, methods: {
         MouseOutClass() {
-            block_aest.classList.add('block_mouse_over')
+            document.getElementById('block_trans').classList.add('block_mouse_over')
         },
         MouseOutmain_block() {
-            main_block_aest.classList.add('main_block_mouse_over')
+            document.getElementById('main_block_trans').classList.add('main_block_mouse_over')
+        },
+        ChangePage(){
+            
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
+main{
+    iframe{
+        width: 100%;
+        height: 45vh;
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+
 .block {
-    background: var(--color-purple);
+    background: #A3DCD4;
     border-radius: var(--64px);
     height: 52vh;
     position: relative;
@@ -50,12 +66,12 @@ export default {
     font-family: 'Salwey';
     font-size: var(--font-h5);
     text-align: right;
-    padding: 10% 10% 0;
+    padding: 6% 5% 0;
 }
 
 .block__title_section {
     text-align: right;
-    padding: 2% 10% 0;
+    padding: 2% 5% 0;
     text-transform: uppercase;
     font-family: 'Salwey';
     font-size: var(--font-h2);
@@ -73,7 +89,7 @@ export default {
 
 
 .main_block img {
-    width: 200%;
+    width: 160%;
     border-radius: 12px;
     margin: 2% 0 0 15%;
 }
@@ -109,6 +125,7 @@ export default {
         padding-top: 0%;
     }
 }
+
 </style>
 
 
